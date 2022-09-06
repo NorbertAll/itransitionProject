@@ -20,6 +20,9 @@ import Button from 'react-bootstrap/Button';
 import Home from './pages/Home';
 import NewCollection from './pages/NewCollection';
 import MainCollection from './pages/MainCollection';
+import Collection from './pages/Collection';
+import NewItem from './pages/NewItem';
+import Item from './pages/Item';
 
 function App() {
   const[authState, setAuthState]= useState({username: "", id:0, role:"", status:false});
@@ -99,6 +102,9 @@ function App() {
           <Route path="/newcollection" element={<NewCollection/>}/>
           <Route path="/main" element={<MainCollection/>}/>
          <Route path="*" element={<NoPage />} />
+         <Route path="/collection/:id" element={<Collection/>}/>
+         <Route path="/newitem/:id" element={<NewItem/>}/>
+         <Route path="/item/:id" element={<Item/>}/>
          </>):("") }
         </Routes>
       </Router>

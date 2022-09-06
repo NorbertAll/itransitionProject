@@ -6,9 +6,10 @@ const { validateToken }=require('../middlewares/AuthMiddleware')
 
 
 router.get('/:id', validateToken, async (req, res)=>{
-    const listOfItem= await Items.findAll({include: [Likes]});
     const id=req.params.id;//idcollection
-    const likedItem= await Items.findAll({where: { CollectionId: id, }});
+    const listOfItem= await Items.findAll({where: { CollectionId: id }}, {include: [Likes]});
+    
+    const likedItem= await Likes.findAll({where: {UserId: req.user.id}});
     res.json({listOfItem:listOfItem, likedItem:likedItem});
 });
 
@@ -26,8 +27,10 @@ router.get('/byuserId/:id', async(req, res)=>{
 
 });
 //router.post();
-router.post('/', validateToken, async (req, res)=>{
+router.post('/:id', validateToken, async (req, res)=>{
+
     const item =req.body;
+    item.CollectionId=req.params.id
     item.username = req.user.username;
     item.UserId = req.user.id;
     console.log(item);

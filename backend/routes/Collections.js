@@ -13,8 +13,14 @@ router.get('/', validateToken, async (req, res)=>{
 
 router.get('/byId/:id', async(req, res)=>{
     const id= req.params.id
-    const collection =await Items.findByPk(id)
+    const collection =await Collections.findByPk(id)
     res.json(collection)
+
+});
+router.get('/byIdCol/:id', async(req, res)=>{
+    const id= req.params.id
+    const items =await Items.findAll({where: {CollectionId: id}})
+    res.json(items)
 
 });
 router.get('/byuserId/:id', async(req, res)=>{

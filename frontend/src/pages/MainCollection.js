@@ -14,7 +14,7 @@ function MainCollection() {
   useEffect(()=>{
     
     let id=authState.id
-    console.log(id);
+   
      axios.get(`http://localhost:3001/collections/byuserId/${id}`).then((response)=>{
         setListOfCoollection(response.data);
         
@@ -39,6 +39,7 @@ function MainCollection() {
                 <div className='username'><Link className='none' to ={`/profile/${value.id}`}> {value.username} </Link></div> 
                 
               </div>
+             
             </div>
           })}
         </div>
