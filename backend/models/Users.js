@@ -39,6 +39,16 @@ module.exports = (sequelize, DataTypes)=>{
         createdAt: 'registration_time',
         updatedAt: false,}
     )
-
+    Users.associate = (models)=>{
+        Users.hasMany(models.Items, {
+            onDelete: "cascade",
+        });
+        Users.hasMany(models.Collections, {
+            onDelete: "cascade",
+        });
+        Users.hasMany(models.Likes, {
+            onDelete: "cascade",
+        })
+    };
    return Users;
 };
