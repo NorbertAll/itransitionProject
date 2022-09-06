@@ -12,14 +12,14 @@ router.get('/', async (req, res)=>{
 });
 
 router.post('/',async (req, res)=>{
-    const {username, password, e_mail} =req.body;
+    const {username, password, email} =req.body;
     const us=await Users.findOne({where: {username:username}});
     if(!us){
     bcrypt.hash(password, 10).then((hash)=>{
         Users.create({
             username: username,
             password: hash,
-            e_mail: e_mail
+            e_mail: email
         })
        
     }); 
@@ -45,11 +45,11 @@ router.post('/login',async (req, res)=>{
             }
         else{
             if(user.status==='blocked'){
-                console.log("działa");
+                
                 res.json("User blocked")
             }else{
-                const accessToken = sign({username: user.username, id:user.id}, "importantsecret")
-                res.json({token: accessToken, username:username, id: user.id}) 
+                const accessToken = sign({username: user.username, id:user.id, role: user.role}, "importantsecret")
+                res.json({token: accessToken, username:username, id: user.id, role: user.role}) 
                 let date= new Date();
                 Users.update(
                     { last_login_time: date.toLocaleString() },

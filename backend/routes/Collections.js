@@ -6,8 +6,8 @@ const { validateToken }=require('../middlewares/AuthMiddleware')
 
 
 router.get('/', validateToken, async (req, res)=>{
-    const likedCoollection= await Collections.findAll();
-    res.json({listOfCollection:likedCoollection});
+    const listCoollection= await Collections.findAll();
+    res.json({listOfCollection:listCoollection});
 });
 
 

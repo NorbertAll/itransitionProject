@@ -9,13 +9,15 @@ const Registration = () => {
     const initialValues = {
         username: "",
         password: "",
-        password_confirm:""
+        password_confirm:"",
+        email:""
       };
       let navigate=useNavigate();
       const validationSchema = Yup.object().shape({
         username: Yup.string().required("Username required"),
         password: Yup.string().required("Password required"),
         password_confirm: Yup.string().required("Confirm password required"),
+        email: Yup.string().email('Incorrect mail').required("Email required"),
       });
 
       const onSubmit = (data) => {
@@ -50,6 +52,10 @@ const Registration = () => {
             <label>Confirm Password:</label>
             <ErrorMessage name="password_confirm" component="span" />
             <Field as={TextField} id="password_confirm" label="confirm password" name="password_confirm" type="password" placeholder="Confirm Password"/>
+            <br/>
+            <ErrorMessage name="email" component="span" />
+            <Field as={TextField} id="email" label="email" name="email" placeholder="Email"/>
+            <br/>
             <br/>
             <button type='submit'>Registration</button>
         </Form>
