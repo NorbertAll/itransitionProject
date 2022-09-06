@@ -72,7 +72,7 @@ function App() {
                {authState.role=="admin" ?(
             <Link to="/userapp">Users</Link>
             ): ("")}
-            <Link to="/">Strona Główna</Link>
+            <Link to="/">Home Page</Link>
             <Link to="/newcollection">New Collection</Link>
               <div className='loggedInContainer' >
               <Link to="/main">{authState.username}</Link>

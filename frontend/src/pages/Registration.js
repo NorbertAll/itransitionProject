@@ -53,6 +53,7 @@ const Registration = () => {
             <ErrorMessage name="password_confirm" component="span" />
             <Field as={TextField} id="password_confirm" label="confirm password" name="password_confirm" type="password" placeholder="Confirm Password"/>
             <br/>
+            <label>Email:</label>
             <ErrorMessage name="email" component="span" />
             <Field as={TextField} id="email" label="email" name="email" placeholder="Email"/>
             <br/>
