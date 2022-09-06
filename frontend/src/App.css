@@ -1,39 +1,394 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
-}
 
-.App-header {
+/* BASE STYLES */
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lexend', sans-serif;
+  color: inherit;
+  font-size: inherit;
+  scroll-behavior: smooth;
+}
+.app{
   min-height: 100vh;
+}
+
+body{
+  line-height: 1.8em;
+  font-weight: 400;
+  font-size: 16px;
+  height: 100%;
+  position:relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.content{
+  
+  width: 100%;
+  min-height: 100vh;
+  color: var(white);
+  
+
+  
+  
+}
+.none {
+  text-decoration: none;
+  color: white;
+}
+.none:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.idea {
+  float: left;
+  min-width: 200px;
+  max-width: 500px;
+  min-height: 200px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 1px solid lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.idea:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+}
+.idea .title {
+  padding: 10px;
+  border-bottom: 1px solid black;
+  background-color: rgb(75, 76, 73);
+  display: flex;
+  align-items: center;
+  place-content: center;
+  color: white;
+}
+
+.idea .body {
+  flex: 70%;
+  background: grey;
+  display: grid;
+  place-content: center;
+}
+
+.idea .footer {
+  padding: 10px;
+  border-top: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  background-color:  rgb(75, 76, 73);
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+/* Form */
+
+.createForm {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  padding: 20px;
+  
+  
+}
+
+.formContainer #inputCreateIdea {
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.formContainer button {
+  width: 100%;
+  margin-top: 15px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+}
+
+.formContainer button:hover {
+  cursor: pointer;
+  background-color: green;
+}
+
+span {
+  color: red;
+}
+
+/* navbar */
+
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: rgb(60, 61, 59);
+  display: flex;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.navbar .links {
+  flex: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .loggedInContainer {
+  flex: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar button {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.navbar h1 {
+  text-align: right;
+  margin-right: 10px;
+  color: white;
+  font-weight: lighter;
+}
+/* idea */
+.ideax{
+  font-size: 20px;
+}
+/* Komnetarze*/
+.addCommentContainer input, button {
+  text-align: center;
+  align-items: center;
+  margin-left: 20%;
+  width: 60%;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+
+}
+.addCommentContainer button {
+  background-color: grey;
+  color: white;
+  align-items: center;
+  margin-left: 40%;
+  width: 20%;
+  
+}
+.addCommentContainer button:hover {
+  background-color: green;
+  color: white;
+}
+
+.addCommentContainer input {
+  border: 2px solid grey;
+}
+
+.commentx .listOfComments {
+  flex: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.listOfComments .comment {
+  position: relative;
+  text-align: center;
+  width: 70%;
+  height: auto;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.authorcomment{
+  text-align: right;
+}
+
+#individual {
+  height: 500px;
+  width: 600px;
+}
+
+#individual .title,
+#individual .footer {
+  font-size: 30px;
+}
+
+#individual .body {
+  font-size: 25px;
+}
+.loginContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-top: 100px;
+}
+
+.loginContainer input,
+button {
+  width: 200px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  margin: 10px;
+}
+
+
+
+Link {
+  text-decoration: none;
+}
+/* footer idea */
+.footer .username {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+.footer .buttons {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.likeBtn {
+  color: rgba(250, 250, 250, 0.542);
+}
+.unlikeBtn {
+  color: white;
+}
+
+
+.ideax {
+  
+ position: relative;
+  min-height: 200px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-right: 20%;
+  margin-left: 20%;
+  border: 1px solid lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.ideax:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+}
+.ideax .title {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  background-color: rgb(75, 76, 73);
+  display: flex;
+  align-items: center;
+  place-content: center;
+  color: white;
+}
+
+.ideax .body {
+  flex: 70%;
+  display: grid;
+  place-content: center;
+}
+
+.ideax .footer {
+  position: relative;
+  padding: 10px;
+  border-top: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  background-color: rgb(75, 76, 73);
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.ideax .title .titleName{ 
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.ideax .delicon{
+
+  display: inline-block;
+ 
+margin:5px 5px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.delCom{
+  display: inline-block;
+ 
+margin:5px 5px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+  
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
+.footerx{
+    position:absolute;
+		bottom:0;
+		width:100%;
+		height:60px;		/* Wysokość nagłówka */
+		background: rgb(60, 61, 59);
+    color: white;
+    text-align: center;
+	}
+
+
+

@@ -4,7 +4,11 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.STRING,
             allowNull:false
         },
-        tags: {
+        description: {
+            type: DataTypes.STRING,
+            allowNull:false
+        },
+        topic: {
             type: DataTypes.STRING,
             allowNull:false
         },

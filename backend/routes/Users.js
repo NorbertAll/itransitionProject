@@ -4,7 +4,7 @@ const {Users}= require("../models");
 const bcrypt= require('bcrypt')
 
 const {sign}= require('jsonwebtoken');
-//const { validateToken } = require('../middlewares/AuthMiddleware');
+const { validateToken } = require('../middlewares/AuthMiddleware');
 
 router.get('/', async (req, res)=>{
     const listOfUsers= await Users.findAll();
@@ -68,9 +68,15 @@ router.get('/byId/:id', async(req, res)=>{
     const user =await Users.findByPk(id)
     res.json(user)
 });
-//router.get('/token',validateToken,async (req, res)=>{
-//    res.json(req.user);
-//});
+router.get('/token',validateToken,async (req, res)=>{
+    res.json(req.user);
+});
+router.get('/profile/:id', async (req, res)=>{
+    const id = req.params.id;
+    const basicInfo=await Users.findByPk(id, {attributes:{exclude:['password']}})
+
+    res.json(basicInfo);
+});
 router.post('/delete', async (req, res)=>{
     let len=Object.keys(req.body).length;
     for(let i=0; i<len; i++){
